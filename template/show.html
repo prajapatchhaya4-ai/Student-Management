@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>student Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h2>All student Records</h2>
+    <table>
+        <tr>
+            <th>rollnumber</th>
+            <th>name</th>
+            <th>age</th>
+            <th>mobile</th>
+            <th>email</th>
+            <th>city</th>
+            
+
+        </tr>
+        {% for std in students %}
+        <tr>
+            <td>{{ std.rollnumber }}</td>
+            <td>{{ std.name }}</td>
+            <td>{{ std.age }}</td>
+            <td>{{ std.mobile }}</td>
+            <td>{{ std.email }}</td>
+            <td>{{ std.city }}</td>
+            
+            <td><a href="{% url  'edit'  std.rollnumber %}">update</a></td>
+             <td><a href="{% url  'delete'  std.rollnumber %}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
